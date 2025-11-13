@@ -1,186 +1,219 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yana Koshman Portfolio</title>
+
   <!-- Gothic font for fancy tabs -->
-<link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
 
-<style>
-/* 🌙 Fancy gothic tab style */
+  <style>
+  body {
+    margin: 0;
+    background-color: #111;
+    color: #eee;
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
 
-nav.fancy .tabs {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  list-style: none;
-  padding: 0;
-  margin: 30px 0;
-  gap: 12px;
+  header {
+    padding: 40px 20px;
+  }
+
+  header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+  }
+
+  header p {
+    color: #ccc;
+  }
+
+  /* 🔮 Fancy gothic tab style */
+  nav.fancy .tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 30px 0;
+    gap: 12px;
+  }
+
+  /* Плашки-вкладки */
+  nav.fancy .tab {
+    background: rgba(40, 40, 40, 0.85);
+    color: #f4f1e9;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-family: 'UnifrakturCook', cursive;
+    font-size: 22px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* Hover */
+  nav.fancy .tab:hover {
+    background: rgba(80, 60, 140, 0.9);
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(80, 60, 140, 0.5);
+  }
+
+  /* Active tab */
+  nav.fancy .tab.active {
+    background: rgba(110, 80, 170, 1);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.08);
+  }
+
+  /* Gallery sections */
+  .tab-content {
+    display: none;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .tab-content.active {
+    display: flex;
+  }
+
+  /* Gallery items */
+  .gallery-item img {
+    width: 230px;
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid #ddd;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .gallery-item img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  footer {
+    padding: 40px;
+    background-color: #1a1a1a;
+  }
+
+  footer a {
+    color: #bfa3ff;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+
+  footer a:hover {
+    text-decoration: underline;
+  }
+    /* Canvas background texture */
+body {
+  background: #111 url('https://www.transparenttextures.com/patterns/pw-maze-white.png') repeat;
+  background-size: contain;
+  transition: background 0.5s ease;
 }
 
-/* Плашки-вкладки */
-nav.fancy .tab {
-  background: rgba(40, 40, 40, 0.85);
-  color: #f4f1e9;
-  padding: 14px 28px;
-  border-radius: 12px;
-  font-family: 'UnifrakturCook', cursive;
-  font-size: 20px;
-  letter-spacing: 1px;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-/* Эффект при наведении */
-nav.fancy .tab:hover {
-  background: rgba(80, 60, 140, 0.9);
-  transform: scale(1.05);
-  box-shadow: 0 6px 15px rgba(80, 60, 140, 0.5);
-}
-
-/* Активная вкладка */
-nav.fancy .tab.active {
-  background: rgba(110, 80, 170, 1);
-  color: #fff;
-  border-color: rgba(255, 255, 255, 0.4);
-  transform: scale(1.08);
-}
-
-/* Контейнеры галерей */
+/* Animation for gallery sections */
 .tab-content {
-  display: none;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 15px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .tab-content.active {
-  display: flex;
+  display: flex; /* already set */
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* Галерея */
-.gallery-item img {
-  width: 220px;
-  height: auto;
-  border-radius: 10px;
-  border: 2px solid #ddd;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Smooth appearance for individual images */
+.gallery-item {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-.gallery-item img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+.tab-content.active .gallery-item {
+  opacity: 1;
+  transform: scale(1);
 }
-</style>
 
+  </style>
 </head>
 <body>
 
-<header>
-  <h1>Yana Koshman</h1>
-  <p>Artist Portfolio: Oil Paintings, Watercolors, Photos, and AI Illustrations</p>
-</header>
+  <header>
+    <h1>Yana Koshman</h1>
+    <p>Artist Portfolio: Oil Paintings, Watercolors, Photos, and AI Illustrations</p>
+  </header>
 
-<nav>
-  <ul class="tabs">
-    <li class="tab active" data-tab="photos">Фотографии</li>
-    <li class="tab" data-tab="ai">ИИ иллюстрации</li>
-    <li class="tab" data-tab="prints">Принты</li>
-    <li class="tab" data-tab="oil">Масло</li>
-    <li class="tab" data-tab="watercolor">Акварель</li>
-  </ul>
-</nav>
+  <!-- 🌙 Tabs navigation -->
+  <nav class="fancy">
+    <ul class="tabs">
+      <li class="tab active" data-tab="photos">Photos</li>
+      <li class="tab" data-tab="ai">AI Illustrations</li>
+      <li class="tab" data-tab="prints">Prints</li>
+      <li class="tab" data-tab="oil">Oil Paintings</li>
+      <li class="tab" data-tab="watercolor">Watercolors</li>
+    </ul>
+  </nav>
 
-<!-- 📸 Фотографии -->
-<section class="gallery tab-content active" id="photos">
-  <div class="gallery-item"><img src="images/photo1.jpg" alt="Фото"></div>
-</section>
+  <!-- 📸 Photos -->
+  <section class="gallery tab-content active" id="photos">
+    <div class="gallery-item"><img src="images/photo1.jpg" alt="Photo 1"></div>
+  </section>
 
-<!-- 🤖 ИИ иллюстрации -->
-<section class="gallery tab-content" id="ai">
-  <div class="gallery-item"><img src="images/ai1.jpg" alt="ИИ Иллюстрация 1"></div>
-  <div class="gallery-item"><img src="images/dream_TradingCard (3).jpg" alt="ИИ Иллюстрация 2"></div>
-  <div class="gallery-item"><img src="images/dream_TradingCard (8).jpg" alt="ИИ Иллюстрация 3"></div>
-  <!-- и т.д. -->
-</section>
+  <!-- 🤖 AI Illustrations -->
+  <section class="gallery tab-content" id="ai">
+    <div class="gallery-item"><img src="images/ai1.jpg" alt="AI Illustration 1"></div>
+    <div class="gallery-item"><img src="images/dream_TradingCard (3).jpg" alt="AI Illustration 2"></div>
+    <div class="gallery-item"><img src="images/dream_TradingCard (8).jpg" alt="AI Illustration 3"></div>
+    <div class="gallery-item"><img src="images/dream_TradingCard (13).jpg" alt="AI Illustration 4"></div>
+    <div class="gallery-item"><img src="images/dream_TradingCard (19).jpg" alt="AI Illustration 5"></div>
+  </section>
 
-<!-- 🖨️ Принты -->
-<section class="gallery tab-content" id="prints">
-  <div class="gallery-item"><img src="images/print1.jpg" alt="Принт"></div>
-</section>
+  <!-- 🖨️ Prints -->
+  <section class="gallery tab-content" id="prints">
+    <div class="gallery-item"><img src="images/print1.jpg" alt="Print"></div>
+  </section>
 
-<!-- 🖌️ Масло -->
-<section class="gallery tab-content" id="oil">
-  <div class="gallery-item"><img src="images/oil1.jpg" alt="Масло"></div>
-</section>
+  <!-- 🖌️ Oil -->
+  <section class="gallery tab-content" id="oil">
+    <div class="gallery-item"><img src="images/oil1.jpg" alt="Oil Painting"></div>
+  </section>
 
-<!-- 💧 Акварель -->
-<section class="gallery tab-content" id="watercolor">
-  <div class="gallery-item"><img src="images/watercolor1.jpg" alt="Акварель"></div>
-</section>
+  <!-- 💧 Watercolor -->
+  <section class="gallery tab-content" id="watercolor">
+    <div class="gallery-item"><img src="images/watercolor1.jpg" alt="Watercolor"></div>
+  </section>
+
+  <footer>
+    <p>Contact me:</p>
+    <a href="https://www.instagram.com/yanekhudozhnick/" target="_blank">Instagram</a> |
+    <a href="https://www.youtube.com/@yanekhudozhnick" target="_blank">YouTube</a> |
+    <a href="https://t.me/yanadefectolog" target="_blank">Telegram</a>
+  </footer>
+
   <script>
-  const tabs = document.querySelectorAll('.tab');
-  const contents = document.querySelectorAll('.tab-content');
+    const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.tab-content');
 
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('active'));
-      contents.forEach(c => c.classList.remove('active'));
-
-      tab.classList.add('active');
-      document.getElementById(tab.dataset.tab).classList.add('active');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        contents.forEach(c => c.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+      });
     });
-  });
-</script>
-
-
-<footer>
-  <p>Contact me:</p>
-  <a href="https://www.instagram.com/yanekhudozhnick/" target="_blank">Instagram</a> |
-  <a href="https://www.youtube.com/@yanekhudozhnick" target="_blank">YouTube</a> |
-  <a href="https://t.me/yanadefectolog" target="_blank">Telegram</a>
-</footer>
-
-<script>
-function filterGallery(category) {
-  const items = document.querySelectorAll('.gallery-item');
-  items.forEach(item => {
-    if (category === 'all' || item.dataset.category === category) {
-      item.style.display = 'block';
-    } else {
-      item.style.display = 'none';
-    }
-  });
-}
-</script>
-<script>
-  const tabs = document.querySelectorAll('.tab');
-  const contents = document.querySelectorAll('.tab-content');
-
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('active'));
-      contents.forEach(c => c.classList.remove('active'));
-
-      tab.classList.add('active');
-      document.getElementById(tab.dataset.tab).classList.add('active');
-    });
-  });
-</script>
+  </script>
 
 </body>
-  <nav class="fancy">
-  <ul class="tabs">
-    <li class="tab active" data-tab="photos">Photos</li>
-    <li class="tab" data-tab="ai">AI Illustrations</li>
-    <li class="tab" data-tab="prints">Prints</li>
-    <li class="tab" data-tab="oil">Oil Paintings</li>
-    <li class="tab" data-tab="watercolor">Watercolors</li>
-  </ul>
-</nav>
-
 </html>
