@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,97 +10,66 @@
   <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
 
   <style>
-    /* Основной фон страницы */
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #000; /* черный фон */
+      background-color: #000;
       color: #fff;
       text-align: center;
     }
 
-    /* Панель навигации сверху */
-    header nav {
-      position: fixed;
-      top: 0;
+    /* Шапка 30% высоты */
+    header {
       width: 100%;
-      background: rgba(0,0,0,0.8);
-      z-index: 100;
-      display: flex;
-      justify-content: center;
-      padding: 10px 0;
-    }
-
-    header nav ul {
-      list-style: none;
-      display: flex;
-      gap: 15px;
-      margin: 0;
-      padding: 0;
-    }
-
-    header nav ul li {
-      font-family: 'UnifrakturCook', cursive;
-      color: #FFD700;
-      padding: 8px 20px;
-      border-radius: 20px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    header nav ul li:hover {
-      box-shadow:
-        0 0 10px rgba(255, 223, 0, 0.8),
-        0 0 20px rgba(255, 215, 0, 0.7),
-        0 0 30px rgba(255, 215, 0, 0.6);
-    }
-
-    /* Шапка */
-    header .header-content {
-      width: 100%;
-      height: 33vh; /* треть экрана по высоте */
+      height: 30vh;
       background: url('images/header-background.jpg') center/cover no-repeat;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      margin-top: 50px; /* чтобы не перекрывало nav */
+      justify-content: center;
+      text-align: center;
     }
 
-    header .header-content h1 {
-      font-family: 'UnifrakturCook', cursive;
+    header .header-content {
       color: #fff;
-      font-size: clamp(2em, 5vw, 3em);
+      font-family: 'UnifrakturCook', cursive;
       text-shadow: 2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: clamp(2em, 6vw, 3em);
       margin: 0;
     }
 
-    header .header-content p {
-      font-family: 'UnifrakturCook', cursive;
-      color: #fff;
-      text-shadow: 1px 1px 0 #000;
+    header p {
       font-size: clamp(1em, 2.5vw, 1.3em);
-      margin-top: 5px;
+      margin-top: 10px;
     }
 
-    /* Галереи вкладок */
+    /* Навигация вкладок */
+    nav.fancy {
+      background-color: #111;
+    }
+
     nav.fancy .tabs {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
       list-style: none;
-      padding: 20px 0;
+      padding: 15px 10px;
       margin: 0;
-      gap: 12px;
+      gap: 10px;
     }
 
     nav.fancy .tab {
       background: linear-gradient(145deg, #FFD700, #EEC900);
       color: #fff;
-      padding: 12px 28px;
+      padding: 10px 25px;
       border-radius: 30px;
       font-family: 'UnifrakturCook', cursive;
-      font-size: 18px;
+      font-size: clamp(14px, 2vw, 18px);
       letter-spacing: 1px;
       cursor: pointer;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -123,13 +93,13 @@
         0 0 30px rgba(255, 215, 0, 0.7);
     }
 
+    /* Галереи */
     .tab-content {
       display: none;
       justify-content: center;
       flex-wrap: wrap;
       gap: 15px;
-      padding: 20px 0;
-      margin-top: 20px;
+      padding: 20px 10px;
     }
 
     .tab-content.active {
@@ -163,45 +133,67 @@
     footer a:hover {
       text-decoration: underline;
     }
+
+    /* Адаптивность */
+    @media(max-width: 600px) {
+      nav.fancy .tab {
+        font-size: 14px;
+        padding: 8px 18px;
+      }
+      .gallery-item img {
+        width: 150px;
+      }
+    }
   </style>
 </head>
 <body>
 
 <header>
-  <nav>
-    <ul>
-      <li onclick="document.getElementById('photos').scrollIntoView({behavior:'smooth'})">Photos</li>
-      <li onclick="document.getElementById('ai').scrollIntoView({behavior:'smooth'})">AI Illustrations</li>
-      <li onclick="document.getElementById('prints').scrollIntoView({behavior:'smooth'})">Prints</li>
-      <li onclick="document.getElementById('oil').scrollIntoView({behavior:'smooth'})">Oil Paintings</li>
-      <li onclick="document.getElementById('watercolor').scrollIntoView({behavior:'smooth'})">Watercolors</li>
-    </ul>
-  </nav>
   <div class="header-content">
     <h1>Yana Koshman</h1>
-    <p>Artist Portfolio: Oil Paintings, Watercolors, Photos, and AI Illustrations</p>
+    <p>Artist Portfolio: Oil Paintings, Watercolors, and AI Illustrations</p>
   </div>
 </header>
 
+<!-- Вкладки -->
 <nav class="fancy">
   <ul class="tabs">
-    <li class="tab active" data-tab="photos">Photos</li>
-    <li class="tab" data-tab="ai">AI Illustrations</li>
+    <li class="tab active" data-tab="ai">AI Illustrations</li>
     <li class="tab" data-tab="prints">Prints</li>
     <li class="tab" data-tab="oil">Oil Paintings</li>
     <li class="tab" data-tab="watercolor">Watercolors</li>
   </ul>
 </nav>
 
-<section class="gallery tab-content active" id="photos">
-  <div class="gallery-item"><img src="images/photo1.jpg" alt="Photo"></div>
-</section>
-
-<section class="gallery tab-content" id="ai">
+<!-- Галереи -->
+<section class="gallery tab-content active" id="ai">
   <div class="gallery-item"><img src="images/ai1.jpg" alt="AI Illustration 1"></div>
   <div class="gallery-item"><img src="images/dream_TradingCard (1).jpg" alt="AI Illustration 2"></div>
   <div class="gallery-item"><img src="images/dream_TradingCard (3).jpg" alt="AI Illustration 3"></div>
   <div class="gallery-item"><img src="images/dream_TradingCard (8).jpg" alt="AI Illustration 4"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (13).jpg" alt="AI Illustration 5"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (15).jpg" alt="AI Illustration 6"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (17).jpg" alt="AI Illustration 7"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (19).jpg" alt="AI Illustration 8"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (29).jpg" alt="AI Illustration 9"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (30).jpg" alt="AI Illustration 10"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (31).jpg" alt="AI Illustration 11"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (36).jpg" alt="AI Illustration 12"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (43).jpg" alt="AI Illustration 13"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (47).jpg" alt="AI Illustration 14"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (48).jpg" alt="AI Illustration 15"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (54).jpg" alt="AI Illustration 16"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (57).jpg" alt="AI Illustration 17"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (59).jpg" alt="AI Illustration 18"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (60).jpg" alt="AI Illustration 19"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (62).jpg" alt="AI Illustration 20"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (63).jpg" alt="AI Illustration 21"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (64).jpg" alt="AI Illustration 22"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (65).jpg" alt="AI Illustration 23"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (67).jpg" alt="AI Illustration 24"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (68).jpg" alt="AI Illustration 25"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (71).jpg" alt="AI Illustration 26"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard.jpg" alt="AI Illustration 27"></div>
 </section>
 
 <section class="gallery tab-content" id="prints">
@@ -216,6 +208,7 @@
   <div class="gallery-item"><img src="images/watercolor1.jpg" alt="Watercolor"></div>
 </section>
 
+<!-- Скрипт вкладок -->
 <script>
   const tabs = document.querySelectorAll('.tab');
   const contents = document.querySelectorAll('.tab-content');
