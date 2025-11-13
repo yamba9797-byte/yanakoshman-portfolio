@@ -2,132 +2,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yana Koshman Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yana Koshman Portfolio</title>
 
-  <!-- Gothic font for fancy tabs -->
-  <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+<!-- Gothic font -->
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
 
-  <style>
-  body {
-    margin: 0;
-    color: #eee;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background: #111 url('https://www.transparenttextures.com/patterns/pw-maze-white.png') repeat;
-    background-size: contain;
-    transition: background 0.5s ease;
-  }
+<style>
+/* Body & Background */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #111 url('images/canvas_bg.jpg') repeat; /* canvas texture */
+  background-size: cover;
+  color: #fff;
+  text-align: center;
+}
 
-  header {
-    padding: 40px 20px;
-  }
+/* Header */
+header {
+  padding: 40px 20px;
+}
 
-  header h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-  }
+header h1 {
+  font-family: 'UnifrakturCook', cursive;
+  font-size: 3em;
+  margin-bottom: 10px;
+  color: #FFD700; /* gold */
+}
 
-  header p {
-    color: #ccc;
-  }
+header p {
+  font-size: 1.2em;
+  color: #fff;
+}
 
-  /* Tabs */
-  nav.fancy .tabs {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    list-style: none;
-    padding: 0;
-    margin: 30px 0;
-    gap: 12px;
-  }
+/* Top Navigation Panel */
+nav.top-nav {
+  display: flex;
+  justify-content: center;
+  background: #222;
+  padding: 15px 0;
+}
 
-  nav.fancy .tab {
-    background: rgba(40, 40, 40, 0.85);
-    color: #f4f1e9;
-    padding: 14px 28px;
-    border-radius: 12px;
-    font-family: 'UnifrakturCook', cursive;
-    font-size: 22px;
-    letter-spacing: 1px;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-  }
+nav.top-nav a {
+  margin: 0 20px;
+  text-decoration: none;
+  font-family: 'UnifrakturCook', cursive;
+  font-size: 1.2em;
+  color: #FFD700;
+  transition: color 0.3s ease;
+}
 
-  nav.fancy .tab:hover {
-    background: rgba(80, 60, 140, 0.9);
-    transform: scale(1.05);
-    box-shadow: 0 6px 15px rgba(80, 60, 140, 0.5);
-  }
+nav.top-nav a:hover {
+  color: #FFFF99; /* light gold on hover */
+}
 
-  nav.fancy .tab.active {
-    background: rgba(110, 80, 170, 1);
-    color: #fff;
-    border-color: rgba(255, 255, 255, 0.4);
-    transform: scale(1.08);
-  }
+/* Category Tabs on Main Page */
+nav.fancy .tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 30px 0;
+  gap: 15px;
+}
 
-  /* Gallery */
-  .tab-content {
-    display: none;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 20px;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-  }
+nav.fancy .tab {
+  background: linear-gradient(135deg, #FFD700, #FFEA70); /* gold gradient */
+  color: #111;
+  padding: 14px 28px;
+  border-radius: 50px; /* oval shape */
+  font-family: 'UnifrakturCook', cursive;
+  font-size: 20px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(255, 215, 0, 0.4);
+  transition: all 0.3s ease;
+  border: 1px solid #FFFACD;
+  text-shadow: 0 0 5px #FFD700, 0 0 10px #FFE066; /* glowing effect */
+}
 
-  .tab-content.active {
-    display: flex;
-    opacity: 1;
-    transform: translateY(0);
-  }
+nav.fancy .tab:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(255, 223, 0, 0.6);
+}
 
-  .gallery-item {
-    opacity: 0;
-    transform: scale(0.95);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-  }
+nav.fancy .tab.active {
+  transform: scale(1.08);
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.8);
+}
 
-  .tab-content.active .gallery-item {
-    opacity: 1;
-    transform: scale(1);
-  }
+/* Gallery Sections */
+.tab-content {
+  display: none;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
 
-  .gallery-item img {
-    width: 230px;
-    height: auto;
-    border-radius: 10px;
-    border: 2px solid #ddd;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
+.tab-content.active {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
 
-  .gallery-item img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-  }
+/* Individual gallery item */
+.gallery-item {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
 
-  footer {
-    padding: 40px;
-    background-color: #1a1a1a;
-  }
+.tab-content.active .gallery-item {
+  opacity: 1;
+  transform: scale(1);
+}
 
-  footer a {
-    color: #bfa3ff;
-    text-decoration: none;
-    margin: 0 10px;
-  }
+.gallery-item img {
+  width: 230px;
+  height: auto;
+  border-radius: 10px;
+  border: 2px solid #FFD700;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-  footer a:hover {
-    text-decoration: underline;
-  }
-  </style>
+.gallery-item img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(255, 223, 0, 0.5);
+}
+
+/* Footer */
+footer {
+  padding: 30px;
+  background-color: #222;
+  color: #fff;
+}
+
+footer a {
+  color: #FFD700;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+</style>
 </head>
 <body>
 
@@ -136,7 +162,16 @@
   <p>Artist Portfolio: Oil Paintings, Watercolors, Photos, and AI Illustrations</p>
 </header>
 
-<!-- Tabs -->
+<!-- Top navigation -->
+<nav class="top-nav">
+  <a href="#photos">Photos</a>
+  <a href="#ai">AI Illustrations</a>
+  <a href="#prints">Prints</a>
+  <a href="#oil">Oil Paintings</a>
+  <a href="#watercolor">Watercolors</a>
+</nav>
+
+<!-- Category Tabs on Main Page -->
 <nav class="fancy">
   <ul class="tabs">
     <li class="tab active" data-tab="photos">Photos</li>
@@ -147,14 +182,13 @@
   </ul>
 </nav>
 
-<!-- Photos -->
+<!-- Photos Section -->
 <section class="gallery tab-content active" id="photos">
   <div class="gallery-item"><img src="images/photo1.jpg" alt="Photo 1"></div>
 </section>
 
-<!-- AI Illustrations -->
+<!-- AI Illustrations Section -->
 <section class="gallery tab-content" id="ai">
-  <!-- Здесь вставлены все твои картинки из папки images -->
   <div class="gallery-item"><img src="images/ai1.jpg" alt="AI Illustration 1"></div>
   <div class="gallery-item"><img src="images/dream_TradingCard (1).jpg" alt="AI Illustration 2"></div>
   <div class="gallery-item"><img src="images/dream_TradingCard (3).jpg" alt="AI Illustration 3"></div>
@@ -184,21 +218,22 @@
   <div class="gallery-item"><img src="images/dream_TradingCard.jpg" alt="AI Illustration 27"></div>
 </section>
 
-<!-- Prints -->
+<!-- Prints Section -->
 <section class="gallery tab-content" id="prints">
   <div class="gallery-item"><img src="images/print1.jpg" alt="Print"></div>
 </section>
 
-<!-- Oil Paintings -->
+<!-- Oil Paintings Section -->
 <section class="gallery tab-content" id="oil">
   <div class="gallery-item"><img src="images/oil1.jpg" alt="Oil Painting"></div>
 </section>
 
-<!-- Watercolors -->
+<!-- Watercolors Section -->
 <section class="gallery tab-content" id="watercolor">
   <div class="gallery-item"><img src="images/watercolor1.jpg" alt="Watercolor"></div>
 </section>
 
+<!-- Footer -->
 <footer>
   <p>Contact me:</p>
   <a href="https://www.instagram.com/yanekhudozhnick/" target="_blank">Instagram</a> |
@@ -206,6 +241,7 @@
   <a href="https://t.me/yanadefectolog" target="_blank">Telegram</a>
 </footer>
 
+<!-- Tabs Script -->
 <script>
 const tabs = document.querySelectorAll('.tab');
 const contents = document.querySelectorAll('.tab-content');
