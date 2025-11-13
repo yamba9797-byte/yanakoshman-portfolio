@@ -12,10 +12,12 @@
   <style>
   body {
     margin: 0;
-    background-color: #111;
     color: #eee;
     font-family: Arial, sans-serif;
     text-align: center;
+    background: #111 url('https://www.transparenttextures.com/patterns/pw-maze-white.png') repeat;
+    background-size: contain;
+    transition: background 0.5s ease;
   }
 
   header {
@@ -31,7 +33,7 @@
     color: #ccc;
   }
 
-  /* 🔮 Fancy gothic tab style */
+  /* Tabs */
   nav.fancy .tabs {
     display: flex;
     justify-content: center;
@@ -42,7 +44,6 @@
     gap: 12px;
   }
 
-  /* Плашки-вкладки */
   nav.fancy .tab {
     background: rgba(40, 40, 40, 0.85);
     color: #f4f1e9;
@@ -57,14 +58,12 @@
     border: 1px solid rgba(255, 255, 255, 0.2);
   }
 
-  /* Hover */
   nav.fancy .tab:hover {
     background: rgba(80, 60, 140, 0.9);
     transform: scale(1.05);
     box-shadow: 0 6px 15px rgba(80, 60, 140, 0.5);
   }
 
-  /* Active tab */
   nav.fancy .tab.active {
     background: rgba(110, 80, 170, 1);
     color: #fff;
@@ -72,20 +71,35 @@
     transform: scale(1.08);
   }
 
-  /* Gallery sections */
+  /* Gallery */
   .tab-content {
     display: none;
     justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
     padding: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
   }
 
   .tab-content.active {
     display: flex;
+    opacity: 1;
+    transform: translateY(0);
   }
 
-  /* Gallery items */
+  .gallery-item {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .tab-content.active .gallery-item {
+    opacity: 1;
+    transform: scale(1);
+  }
+
   .gallery-item img {
     width: 230px;
     height: auto;
@@ -113,107 +127,98 @@
   footer a:hover {
     text-decoration: underline;
   }
-    /* Canvas background texture */
-body {
-  background: #111 url('https://www.transparenttextures.com/patterns/pw-maze-white.png') repeat;
-  background-size: contain;
-  transition: background 0.5s ease;
-}
-
-/* Animation for gallery sections */
-.tab-content {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.tab-content.active {
-  display: flex; /* already set */
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Smooth appearance for individual images */
-.gallery-item {
-  opacity: 0;
-  transform: scale(0.95);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.tab-content.active .gallery-item {
-  opacity: 1;
-  transform: scale(1);
-}
-
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Yana Koshman</h1>
-    <p>Artist Portfolio: Oil Paintings, Watercolors, Photos, and AI Illustrations</p>
-  </header>
+<header>
+  <h1>Yana Koshman</h1>
+  <p>Artist Portfolio: Oil Paintings, Watercolors, Photos, and AI Illustrations</p>
+</header>
 
-  <!-- 🌙 Tabs navigation -->
-  <nav class="fancy">
-    <ul class="tabs">
-      <li class="tab active" data-tab="photos">Photos</li>
-      <li class="tab" data-tab="ai">AI Illustrations</li>
-      <li class="tab" data-tab="prints">Prints</li>
-      <li class="tab" data-tab="oil">Oil Paintings</li>
-      <li class="tab" data-tab="watercolor">Watercolors</li>
-    </ul>
-  </nav>
+<!-- Tabs -->
+<nav class="fancy">
+  <ul class="tabs">
+    <li class="tab active" data-tab="photos">Photos</li>
+    <li class="tab" data-tab="ai">AI Illustrations</li>
+    <li class="tab" data-tab="prints">Prints</li>
+    <li class="tab" data-tab="oil">Oil Paintings</li>
+    <li class="tab" data-tab="watercolor">Watercolors</li>
+  </ul>
+</nav>
 
-  <!-- 📸 Photos -->
-  <section class="gallery tab-content active" id="photos">
-    <div class="gallery-item"><img src="images/photo1.jpg" alt="Photo 1"></div>
-  </section>
+<!-- Photos -->
+<section class="gallery tab-content active" id="photos">
+  <div class="gallery-item"><img src="images/photo1.jpg" alt="Photo 1"></div>
+</section>
 
-  <!-- 🤖 AI Illustrations -->
-  <section class="gallery tab-content" id="ai">
-    <div class="gallery-item"><img src="images/ai1.jpg" alt="AI Illustration 1"></div>
-    <div class="gallery-item"><img src="images/dream_TradingCard (3).jpg" alt="AI Illustration 2"></div>
-    <div class="gallery-item"><img src="images/dream_TradingCard (8).jpg" alt="AI Illustration 3"></div>
-    <div class="gallery-item"><img src="images/dream_TradingCard (13).jpg" alt="AI Illustration 4"></div>
-    <div class="gallery-item"><img src="images/dream_TradingCard (19).jpg" alt="AI Illustration 5"></div>
-  </section>
+<!-- AI Illustrations -->
+<section class="gallery tab-content" id="ai">
+  <!-- Здесь вставлены все твои картинки из папки images -->
+  <div class="gallery-item"><img src="images/ai1.jpg" alt="AI Illustration 1"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (1).jpg" alt="AI Illustration 2"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (3).jpg" alt="AI Illustration 3"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (8).jpg" alt="AI Illustration 4"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (13).jpg" alt="AI Illustration 5"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (15).jpg" alt="AI Illustration 6"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (17).jpg" alt="AI Illustration 7"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (19).jpg" alt="AI Illustration 8"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (29).jpg" alt="AI Illustration 9"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (30).jpg" alt="AI Illustration 10"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (31).jpg" alt="AI Illustration 11"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (36).jpg" alt="AI Illustration 12"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (43).jpg" alt="AI Illustration 13"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (47).jpg" alt="AI Illustration 14"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (48).jpg" alt="AI Illustration 15"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (54).jpg" alt="AI Illustration 16"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (57).jpg" alt="AI Illustration 17"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (59).jpg" alt="AI Illustration 18"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (60).jpg" alt="AI Illustration 19"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (62).jpg" alt="AI Illustration 20"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (63).jpg" alt="AI Illustration 21"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (64).jpg" alt="AI Illustration 22"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (65).jpg" alt="AI Illustration 23"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (67).jpg" alt="AI Illustration 24"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (68).jpg" alt="AI Illustration 25"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (71).jpg" alt="AI Illustration 26"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard.jpg" alt="AI Illustration 27"></div>
+</section>
 
-  <!-- 🖨️ Prints -->
-  <section class="gallery tab-content" id="prints">
-    <div class="gallery-item"><img src="images/print1.jpg" alt="Print"></div>
-  </section>
+<!-- Prints -->
+<section class="gallery tab-content" id="prints">
+  <div class="gallery-item"><img src="images/print1.jpg" alt="Print"></div>
+</section>
 
-  <!-- 🖌️ Oil -->
-  <section class="gallery tab-content" id="oil">
-    <div class="gallery-item"><img src="images/oil1.jpg" alt="Oil Painting"></div>
-  </section>
+<!-- Oil Paintings -->
+<section class="gallery tab-content" id="oil">
+  <div class="gallery-item"><img src="images/oil1.jpg" alt="Oil Painting"></div>
+</section>
 
-  <!-- 💧 Watercolor -->
-  <section class="gallery tab-content" id="watercolor">
-    <div class="gallery-item"><img src="images/watercolor1.jpg" alt="Watercolor"></div>
-  </section>
+<!-- Watercolors -->
+<section class="gallery tab-content" id="watercolor">
+  <div class="gallery-item"><img src="images/watercolor1.jpg" alt="Watercolor"></div>
+</section>
 
-  <footer>
-    <p>Contact me:</p>
-    <a href="https://www.instagram.com/yanekhudozhnick/" target="_blank">Instagram</a> |
-    <a href="https://www.youtube.com/@yanekhudozhnick" target="_blank">YouTube</a> |
-    <a href="https://t.me/yanadefectolog" target="_blank">Telegram</a>
-  </footer>
+<footer>
+  <p>Contact me:</p>
+  <a href="https://www.instagram.com/yanekhudozhnick/" target="_blank">Instagram</a> |
+  <a href="https://www.youtube.com/@yanekhudozhnick" target="_blank">YouTube</a> |
+  <a href="https://t.me/yanadefectolog" target="_blank">Telegram</a>
+</footer>
 
-  <script>
-    const tabs = document.querySelectorAll('.tab');
-    const contents = document.querySelectorAll('.tab-content');
+<script>
+const tabs = document.querySelectorAll('.tab');
+const contents = document.querySelectorAll('.tab-content');
 
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        tabs.forEach(t => t.classList.remove('active'));
-        contents.forEach(c => c.classList.remove('active'));
-        tab.classList.add('active');
-        document.getElementById(tab.dataset.tab).classList.add('active');
-      });
-    });
-  </script>
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    tabs.forEach(t => t.classList.remove('active'));
+    contents.forEach(c => c.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById(tab.dataset.tab).classList.add('active');
+  });
+});
+</script>
 
 </body>
 </html>
