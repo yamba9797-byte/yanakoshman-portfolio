@@ -1,164 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yana Koshman Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yana Koshman Portfolio</title>
 
-  <!-- Gothic font -->
-  <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+<!-- Gothic font -->
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #000;
-      color: #fff;
-      text-align: center;
-    }
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+  }
 
-    /* Навигация сверху */
-    nav.fancy {
-      position: sticky;
-      top: 0;
-      background: #111;
-      z-index: 1000;
-      padding: 10px 0;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
+  /* Навигация сверху */
+  nav.fancy {
+    position: sticky;
+    top: 0;
+    background: #111;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px 0;
+  }
 
-    nav.fancy .tab {
-      cursor: pointer;
-      color: #FFD700;
-      font-family: 'UnifrakturCook', cursive;
-      font-size: 20px;
-      text-decoration: none;
-      transition: 0.3s;
-    }
+  nav.fancy .tab {
+    cursor: pointer;
+    color: #FFD700;
+    font-family: 'UnifrakturCook', cursive;
+    font-size: 20px;
+    text-decoration: none;
+    transition: 0.3s;
+  }
 
-    nav.fancy .tab:hover {
-      color: #fff;
-    }
+  nav.fancy .tab:hover {
+    color: #fff;
+  }
 
-    nav.fancy .tab.active {
-      text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700;
-    }
+  nav.fancy .tab.active {
+    text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700;
+  }
 
-    /* Шапка */
-    header {
-      width: 100%;
-      height: 30vh;
-      background: url('images/header-background.jpg') center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
+  /* Шапка */
+  header {
+    width: 100%;
+    height: 30vh;
+    background: url('images/header-background.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
 
-    header .header-content {
-      color: #fff;
-      font-family: 'UnifrakturCook', cursive;
-      text-shadow: 2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+  header .header-content {
+    color: #fff;
+    font-family: 'UnifrakturCook', cursive;
+    text-shadow: 2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    header h1 {
-      font-size: clamp(2em, 6vw, 3em);
-      margin: 0;
-    }
+  header h1 {
+    font-size: clamp(2em, 6vw, 3em);
+    margin: 0;
+  }
 
-    header p {
-      font-size: clamp(1em, 2.5vw, 1.3em);
-      margin-top: 10px;
-    }
+  header p {
+    font-size: clamp(1em, 2.5vw, 1.3em);
+    margin-top: 10px;
+  }
 
-    /* Главная плашки */
-    #home {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      padding: 50px 0;
-    }
+  /* Главная плашки */
+  #home {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 50px 0;
+  }
 
-    #home .tab {
-      width: 180px;
-      height: 180px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      background: linear-gradient(145deg, #FFD700, #EEC900);
-      background: repeating-linear-gradient(
-        45deg,
-        #FFD700,
-        #FFD700 5px,
-        #EEC900 5px,
-        #EEC900 10px
-      );
-      color: #000;
-      font-family: 'UnifrakturCook', cursive;
-      font-size: 18px;
-      cursor: pointer;
-      text-align: center;
-      text-shadow: 1px 1px 0 #fff;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5), inset 0 -5px 20px rgba(255,255,255,0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+  #home .tab {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #FFD700, #EEC900);
+    background: repeating-linear-gradient(
+      45deg,
+      #FFD700,
+      #FFD700 5px,
+      #EEC900 5px,
+      #EEC900 10px
+    );
+    color: #000;
+    font-family: 'UnifrakturCook', cursive;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    text-shadow: 1px 1px 0 #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5), inset 0 -5px 20px rgba(255,255,255,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
 
-    #home .tab:hover {
-      transform: scale(1.1);
-      box-shadow:
-        0 0 15px rgba(255,223,0,0.8),
-        inset 0 -5px 20px rgba(255,255,255,0.5);
-    }
+  #home .tab:hover {
+    transform: scale(1.1);
+    box-shadow:
+      0 0 15px rgba(255,223,0,0.8),
+      inset 0 -5px 20px rgba(255,255,255,0.5);
+  }
 
-    /* Галереи */
-    .tab-content {
-      display: none;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 15px;
-      padding: 20px 0;
-    }
+  /* Галереи */
+  .tab-content {
+    display: none;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px 0;
+  }
 
-    .tab-content.active {
-      display: flex;
-    }
+  .tab-content.active {
+    display: flex;
+  }
 
-    .gallery-item img {
-      width: 220px;
-      height: auto;
-      border-radius: 10px;
-      border: 2px solid #ddd;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+  .gallery-item img {
+    width: 220px;
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid #ddd;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
 
-    .gallery-item img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 12px rgba(255, 215, 0, 0.7);
-    }
+  .gallery-item img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(255, 215, 0, 0.7);
+  }
 
-    /* Футер */
-    footer {
-      padding: 20px;
-      background: #111;
-    }
+  /* Футер */
+  footer {
+    padding: 20px;
+    background: #111;
+  }
 
-    footer a {
-      color: #FFD700;
-      margin: 0 10px;
-      text-decoration: none;
-    }
+  footer a {
+    color: #FFD700;
+    margin: 0 10px;
+    text-decoration: none;
+  }
 
-    footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  footer a:hover {
+    text-decoration: underline;
+  }
+</style>
 </head>
 <body>
 
@@ -242,53 +242,53 @@
 
 <!-- Скрипт вкладок с поддержкой ссылок -->
 <script>
-  const navTabs = document.querySelectorAll('nav.fancy .tab'); 
-  const contents = document.querySelectorAll('.tab-content');
+const navTabs = document.querySelectorAll('nav.fancy .tab'); 
+const contents = document.querySelectorAll('.tab-content');
 
-  function activateTab(tabId) {
-    contents.forEach(c => c.classList.remove('active'));
-    navTabs.forEach(t => t.classList.remove('active'));
+function activateTab(tabId) {
+  contents.forEach(c => c.classList.remove('active'));
+  navTabs.forEach(t => t.classList.remove('active'));
 
-    const content = document.getElementById(tabId);
-    const navTab = document.querySelector(`nav.fancy .tab[data-tab="${tabId}"]`);
-    if(content) content.classList.add('active');
-    if(navTab) navTab.classList.add('active');
+  const content = document.getElementById(tabId);
+  const navTab = document.querySelector(`nav.fancy .tab[data-tab="${tabId}"]`);
+  if(content) content.classList.add('active');
+  if(navTab) navTab.classList.add('active');
 
-    window.history.replaceState(null, '', `#${tabId}`);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.history.replaceState(null, '', `#${tabId}`);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Навигация сверху
+navTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    activateTab(tab.dataset.tab);
+  });
+});
+
+// Главные плашки
+const homeTabs = document.querySelectorAll('#home .tab');
+homeTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    activateTab(tab.dataset.tab);
+  });
+});
+
+// Проверка хэша при загрузке
+window.addEventListener('load', () => {
+  const hash = window.location.hash.substring(1);
+  if(hash && document.getElementById(hash)){
+    activateTab(hash);
+  } else {
+    activateTab('home');
   }
-
-  // Навигация сверху
-  navTabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      activateTab(tab.dataset.tab);
-    });
-  });
-
-  // Главные плашки
-  const homeTabs = document.querySelectorAll('#home .tab');
-  homeTabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      activateTab(tab.dataset.tab);
-    });
-  });
-
-  // Проверка хэша при загрузке
-  window.addEventListener('load', () => {
-    const hash = window.location.hash.substring(1);
-    if(hash && document.getElementById(hash)){
-      activateTab(hash);
-    } else {
-      activateTab('home');
-    }
-  });
+});
 </script>
 
 <footer>
-  <p>Contact me:</p>
-  <a href="https://www.instagram.com/yanekhudozhnick/" target="_blank">Instagram</a> |
-  <a href="https://www.youtube.com/@yanekhudozhnick" target="_blank">YouTube</a> |
-  <a href="https://t.me/yanadefectolog" target="_blank">Telegram</a>
+<p>Contact me:</p>
+<a href="https://www.instagram.com/yanekhudozhnick/" target="_blank">Instagram</a> |
+<a href="https://www.youtube.com/@yanekhudozhnick" target="_blank">YouTube</a> |
+<a href="https://t.me/yanadefectolog" target="_blank">Telegram</a>
 </footer>
 
 </body>
