@@ -297,5 +297,42 @@
   <a href="https://t.me/yanadefectolog" target="_blank">Telegram</a>
 </footer>
 
+<script>
+const tabs = document.querySelectorAll('.tab');
+const contents = document.querySelectorAll('.tab-content');
+
+function openTab(tabName) {
+  tabs.forEach(t => t.classList.remove('active'));
+  contents.forEach(c => c.classList.remove('active'));
+
+  const tab = document.querySelector(`.tab[data-tab="${tabName}"]`);
+  const content = document.getElementById(tabName);
+
+  if (tab && content) {
+    tab.classList.add('active');
+    content.classList.add('active');
+  }
+}
+
+// Обработчик клика по вкладкам
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    const tabName = tab.dataset.tab;
+    openTab(tabName);
+    // Обновляем hash в URL
+    window.location.hash = tabName;
+  });
+});
+
+// При загрузке страницы проверяем hash
+window.addEventListener('load', () => {
+  const hash = window.location.hash.substring(1); // убираем #
+  if (hash) {
+    openTab(hash);
+  } else {
+    openTab('home'); // по умолчанию главная
+  }
+});
+</script>
 </body>
 </html>
