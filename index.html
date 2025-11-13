@@ -19,28 +19,35 @@ body {
   text-align: center;
 }
 
-/* Header */
 header {
-  padding: 60px 20px;
+  width: 100%;
+  min-height: 50vh;
   background: url('images/header-background.jpg') center/cover no-repeat;
   position: relative;
-  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-header h1 {
-  font-family: 'UnifrakturCook', cursive;
-  font-size: 3em;
-  margin-bottom: 10px;
+header .header-content {
   color: #fff;
+  font-family: 'UnifrakturCook', cursive;
   text-shadow: 2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000;
 }
 
-header p {
-  font-family: 'UnifrakturCook', cursive;
-  font-size: 1.3em;
-  color: #fff;
-  text-shadow: 1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
+header h1 {
+  font-size: clamp(2em, 6vw, 3em);
+  margin: 0;
 }
+
+header p {
+  font-size: clamp(1em, 2.5vw, 1.3em);
+  margin-top: 10px;
+}
+</style>
 
 /* Top Navigation */
 nav.top-nav {
@@ -178,8 +185,10 @@ footer a:hover {
 <body>
 
 <header>
-  <h1>Yana Koshman</h1>
-  <p>Artist Portfolio: Oil Paintings, Watercolors, Photos, and AI Illustrations</p>
+  <div class="header-content">
+    <h1>Yana Koshman</h1>
+    <p>Artist Portfolio: Oil Paintings, Watercolors, Photos, and AI Illustrations</p>
+  </div>
 </header>
 
 <!-- Top navigation -->
