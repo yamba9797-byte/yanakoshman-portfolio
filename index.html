@@ -24,32 +24,26 @@
       background: #111;
       z-index: 1000;
       padding: 10px 0;
-    }
-
-    nav.fancy .tabs {
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
-      list-style: none;
-      padding: 0;
-      margin: 0;
       gap: 20px;
     }
 
     nav.fancy .tab {
-      color: gold;
+      cursor: pointer;
+      color: #FFD700;
       font-family: 'UnifrakturCook', cursive;
       font-size: 20px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    nav.fancy .tab.active {
-      text-decoration: underline;
+      text-decoration: none;
+      transition: 0.3s;
     }
 
     nav.fancy .tab:hover {
-      text-shadow: 0 0 10px gold, 0 0 20px gold;
+      color: #fff;
+    }
+
+    nav.fancy .tab.active {
+      text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700;
     }
 
     /* Шапка */
@@ -82,26 +76,45 @@
       margin-top: 10px;
     }
 
-    /* Главные плашки */
+    /* Главная плашки */
+    #home {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 50px 0;
+    }
+
     #home .tab {
-      background: linear-gradient(145deg, #FFD700, #EEC900);
-      border-radius: 50%;
-      width: 120px;
-      height: 120px;
+      width: 180px;
+      height: 180px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: black;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #FFD700, #EEC900);
+      background: repeating-linear-gradient(
+        45deg,
+        #FFD700,
+        #FFD700 5px,
+        #EEC900 5px,
+        #EEC900 10px
+      );
+      color: #000;
       font-family: 'UnifrakturCook', cursive;
-      font-size: 16px;
+      font-size: 18px;
+      cursor: pointer;
       text-align: center;
-      box-shadow: inset 0 0 30px #fff3, 0 4px 10px rgba(0,0,0,0.3);
-      transition: all 0.3s ease;
+      text-shadow: 1px 1px 0 #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5), inset 0 -5px 20px rgba(255,255,255,0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     #home .tab:hover {
       transform: scale(1.1);
-      box-shadow: inset 0 0 50px #fff5, 0 0 20px gold, 0 0 40px gold;
+      box-shadow:
+        0 0 15px rgba(255,223,0,0.8),
+        inset 0 -5px 20px rgba(255,255,255,0.5);
     }
 
     /* Галереи */
@@ -149,16 +162,14 @@
 </head>
 <body>
 
-<!-- Навигация сверху -->
+<!-- Навигация -->
 <nav class="fancy">
-  <ul class="tabs">
-    <li class="tab" data-tab="home">Home</li>
-    <li class="tab" data-tab="ai">AI Illustrations</li>
-    <li class="tab" data-tab="photo">Photo</li>
-    <li class="tab" data-tab="backgrounds">Backgrounds|Prints</li>
-    <li class="tab" data-tab="oil">Oil Paintings</li>
-    <li class="tab" data-tab="watercolor">Watercolors</li>
-  </ul>
+  <div class="tab" data-tab="home">Home</div>
+  <div class="tab" data-tab="ai">AI Illustrations</div>
+  <div class="tab" data-tab="photo">Photo</div>
+  <div class="tab" data-tab="backgrounds">Backgrounds|Prints</div>
+  <div class="tab" data-tab="oil">Oil Paintings</div>
+  <div class="tab" data-tab="watercolor">Watercolors</div>
 </nav>
 
 <header>
@@ -170,17 +181,17 @@
 
 <!-- Главная -->
 <section class="tab-content active" id="home">
-  <ul class="tabs" style="justify-content:center; gap:40px; padding:50px 0; list-style:none;">
-    <li class="tab" data-tab="ai">AI Illustrations</li>
-    <li class="tab" data-tab="photo">Photo</li>
-    <li class="tab" data-tab="backgrounds">Backgrounds|Prints</li>
-    <li class="tab" data-tab="oil">Oil Paintings</li>
-    <li class="tab" data-tab="watercolor">Watercolors</li>
-  </ul>
+  <div class="tab" data-tab="ai">AI Illustrations</div>
+  <div class="tab" data-tab="photo">Photo</div>
+  <div class="tab" data-tab="backgrounds">Backgrounds|Prints</div>
+  <div class="tab" data-tab="oil">Oil Paintings</div>
+  <div class="tab" data-tab="watercolor">Watercolors</div>
 </section>
 
 <!-- AI Illustrations -->
 <section class="gallery tab-content" id="ai">
+  <!-- Все картинки из папки images -->
+  <div class="gallery-item"><img src="images/ai1.jpg" alt="AI Illustration 1"></div>
   <div class="gallery-item"><img src="images/dream_TradingCard (1).jpg" alt="AI Illustration 2"></div>
   <div class="gallery-item"><img src="images/dream_TradingCard (3).jpg" alt="AI Illustration 3"></div>
   <div class="gallery-item"><img src="images/dream_TradingCard (8).jpg" alt="AI Illustration 4"></div>
@@ -211,7 +222,7 @@
 
 <!-- Photo -->
 <section class="gallery tab-content" id="photo">
-  <div class="gallery-item"><img src="images/photo1.jpg" alt="Photo 1"></div>
+  <div class="gallery-item"><img src="images/photo1.jpg" alt="Photo"></div>
 </section>
 
 <!-- Backgrounds|Prints -->
@@ -229,43 +240,43 @@
   <div class="gallery-item"><img src="images/watercolor1.jpg" alt="Watercolor"></div>
 </section>
 
-<!-- Скрипт вкладок с поддержкой прямых ссылок -->
+<!-- Скрипт вкладок с поддержкой ссылок -->
 <script>
-  const tabs = document.querySelectorAll('nav.fancy .tab');
-  const homeTabs = document.querySelectorAll('#home .tab');
+  const navTabs = document.querySelectorAll('nav.fancy .tab'); 
   const contents = document.querySelectorAll('.tab-content');
 
   function activateTab(tabId) {
-    tabs.forEach(t => t.classList.remove('active'));
-    homeTabs.forEach(t => t.classList.remove('active'));
     contents.forEach(c => c.classList.remove('active'));
+    navTabs.forEach(t => t.classList.remove('active'));
 
-    const tab = document.querySelector(`nav.fancy .tab[data-tab="${tabId}"]`);
-    const homeTab = document.querySelector(`#home .tab[data-tab="${tabId}"]`);
     const content = document.getElementById(tabId);
-
-    if(tab) tab.classList.add('active');
-    if(homeTab) homeTab.classList.add('active');
+    const navTab = document.querySelector(`nav.fancy .tab[data-tab="${tabId}"]`);
     if(content) content.classList.add('active');
+    if(navTab) navTab.classList.add('active');
 
     window.history.replaceState(null, '', `#${tabId}`);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  tabs.forEach(tab => {
+  // Навигация сверху
+  navTabs.forEach(tab => {
     tab.addEventListener('click', () => {
       activateTab(tab.dataset.tab);
     });
   });
 
+  // Главные плашки
+  const homeTabs = document.querySelectorAll('#home .tab');
   homeTabs.forEach(tab => {
     tab.addEventListener('click', () => {
       activateTab(tab.dataset.tab);
     });
   });
 
+  // Проверка хэша при загрузке
   window.addEventListener('load', () => {
     const hash = window.location.hash.substring(1);
-    if(hash){
+    if(hash && document.getElementById(hash)){
       activateTab(hash);
     } else {
       activateTab('home');
