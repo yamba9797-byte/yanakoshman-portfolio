@@ -99,101 +99,57 @@
 </header>
 
 <nav>
-  <button onclick="filterGallery('all')">All</button>
-  <button onclick="filterGallery('photos')">Photos</button>
-  <button onclick="filterGallery('ai')">AI Illustrations</button>
-  <button onclick="filterGallery('prints')">Backgrounds/Prints</button>
-  <button onclick="filterGallery('oil')">Oil Paintings</button>
-  <button onclick="filterGallery('watercolor')">Watercolors</button>
+  <ul class="tabs">
+    <li class="tab active" data-tab="photos">Фотографии</li>
+    <li class="tab" data-tab="ai">ИИ иллюстрации</li>
+    <li class="tab" data-tab="prints">Принты</li>
+    <li class="tab" data-tab="oil">Масло</li>
+    <li class="tab" data-tab="watercolor">Акварель</li>
+  </ul>
 </nav>
 
-<section class="gallery" id="gallery">
-  <!-- Example items, replace with your works -->
-  <div class="gallery-item" data-category="photos"><img src="images/photo1.jpg" alt="Photo"></div>
-  <div class="gallery-item" data-category="ai"><img src="images/ai1.jpg" alt="AI Illustration"></div>
-  <div class="gallery-item" data-category="ai">
-  <img src="images/dream_TradingCard (1)jpg" alt="AI Illustration 2">
-</div>
-  <div class="gallery-item" data-category="ai">
-  <img src="images/dream_TradingCard (3)jpg" alt="AI Illustration 2">
-</div>
-  <div class="gallery-item" data-category="ai">
-  <img src="images/dream_TradingCard (8)jpg" alt="AI Illustration 2">
-</div>
-  <div class="gallery-item" data-category="ai">
-  <img src="images/dream_TradingCard (13)jpg" alt="AI Illustration 2">
-</div>
-  <div class="gallery-item" data-category="ai">
-  <img src="images/dream_TradingCard (15)jpg" alt="AI Illustration 2">
-</div>
-  <div class="gallery-item" data-category="ai">
-  <img src="images/dream_TradingCard (17)jpg" alt="AI Illustration 2">
-</div>
-  <div class="gallery-item" data-category="ai">
-  <img src="images/dream_TradingCard (19)jpg" alt="AI Illustration 2">
-</div>
-  <div class="gallery-item" data-category="ai">
-  <img src="images/dream_TradingCard (29)jpg" alt="AI Illustration 2">
-</div>
-  <div class="gallery-item" data-category="ai">
-  <img src="images/dream_TradingCard (30)jpg" alt="AI Illustration 2">
-</div>
-  <div class="gallery-item" data-category="ai">
-  <img src="images/dream_TradingCard (31)jpg" alt="AI Illustration 2">
-</div>
-  <div class="gallery-item" data-category="ai">
-  <img src="images/dream_TradingCard (36)jpg" alt="AI Illustration 2">
-</div>
-  <div class="gallery-item" data-category="ai">
-  <img src="images/dream_TradingCard (43)jpg" alt="AI Illustration 2">
-</div>
-  <div class="gallery-item" data-category="ai">
-  <img src="images/dream_TradingCard (47)jpg" alt="AI Illustration 2">
-</div>
-  <div class="gallery-item" data-category="ai">
-  <img src="images/dream_TradingCard (48)jpg" alt="AI Illustration 2">
-</div>
-  <div class="gallery-item" data-category="ai">
-  <img src="images/dream_TradingCard (54)jpg" alt="AI Illustration 2">
-</div>
-  <div class="gallery-item" data-category="ai">
-  <img src="images/dream_TradingCard (57)jpg" alt="AI Illustration 2">
-</div>
-  <div class="gallery-item" data-category="ai">
-  <img src="images/dream_TradingCard (59)jpg" alt="AI Illustration 2">
-</div>
-  <div class="gallery-item" data-category="ai">
-  <img src="images/dream_TradingCard (60)jpg" alt="AI Illustration 2">
-</div>
-  <div class="gallery-item" data-category="ai">
-  <img src="images/dream_TradingCard (62)jpg" alt="AI Illustration 2">
-</div>
-  <div class="gallery-item" data-category="ai">
-  <img src="images/dream_TradingCard (63)jpg" alt="AI Illustration 2">
-</div>
-  <div class="gallery-item" data-category="ai">
-  <img src="images/dream_TradingCard (64)jpg" alt="AI Illustration 2">
-</div>
-  <div class="gallery-item" data-category="ai">
-  <img src="images/dream_TradingCard (65)jpg" alt="AI Illustration 2">
-</div>
-  <div class="gallery-item" data-category="ai">
-  <img src="images/dream_TradingCard (67)jpg" alt="AI Illustration 2">
-</div>
-  <div class="gallery-item" data-category="ai">
-  <img src="images/dream_TradingCard (68)jpg" alt="AI Illustration 2">
-</div>
-  <div class="gallery-item" data-category="ai">
-  <img src="images/dream_TradingCard (71)jpg" alt="AI Illustration 2">
-</div>
-  <div class="gallery-item" data-category="ai">
-  <img src="images/dream_TradingCardjpg" alt="AI Illustration 2">
-</div>
-  
-  <div class="gallery-item" data-category="prints"><img src="images/print1.jpg" alt="Background/Print"></div>
-  <div class="gallery-item" data-category="oil"><img src="images/oil1.jpg" alt="Oil Painting"></div>
-  <div class="gallery-item" data-category="watercolor"><img src="images/watercolor1.jpg" alt="Watercolor"></div>
+<!-- 📸 Фотографии -->
+<section class="gallery tab-content active" id="photos">
+  <div class="gallery-item"><img src="images/photo1.jpg" alt="Фото"></div>
 </section>
+
+<!-- 🤖 ИИ иллюстрации -->
+<section class="gallery tab-content" id="ai">
+  <div class="gallery-item"><img src="images/ai1.jpg" alt="ИИ Иллюстрация 1"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (3).jpg" alt="ИИ Иллюстрация 2"></div>
+  <div class="gallery-item"><img src="images/dream_TradingCard (8).jpg" alt="ИИ Иллюстрация 3"></div>
+  <!-- и т.д. -->
+</section>
+
+<!-- 🖨️ Принты -->
+<section class="gallery tab-content" id="prints">
+  <div class="gallery-item"><img src="images/print1.jpg" alt="Принт"></div>
+</section>
+
+<!-- 🖌️ Масло -->
+<section class="gallery tab-content" id="oil">
+  <div class="gallery-item"><img src="images/oil1.jpg" alt="Масло"></div>
+</section>
+
+<!-- 💧 Акварель -->
+<section class="gallery tab-content" id="watercolor">
+  <div class="gallery-item"><img src="images/watercolor1.jpg" alt="Акварель"></div>
+</section>
+  <script>
+  const tabs = document.querySelectorAll('.tab');
+  const contents = document.querySelectorAll('.tab-content');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      contents.forEach(c => c.classList.remove('active'));
+
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.tab).classList.add('active');
+    });
+  });
+</script>
+
 
 <footer>
   <p>Contact me:</p>
