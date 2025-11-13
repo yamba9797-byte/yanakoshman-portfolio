@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,17 +17,13 @@
       text-align: center;
     }
 
-    /* Навигация сверху, узкая и фиксированная */
+    /* Навигация сверху */
     nav.fancy {
-      position: fixed;
+      position: sticky;
       top: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(0,0,0,0.85);
+      background: #111;
       z-index: 1000;
-      padding: 8px 0;
-      text-align: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+      padding: 10px 0;
     }
 
     nav.fancy .tabs {
@@ -42,30 +37,23 @@
     }
 
     nav.fancy .tab {
+      color: gold;
       font-family: 'UnifrakturCook', cursive;
-      font-size: 18px;
-      color: #FFD700;
+      font-size: 20px;
       cursor: pointer;
       transition: all 0.3s ease;
     }
 
-    nav.fancy .tab:hover {
-      text-shadow:
-        0 0 5px #FFD700,
-        0 0 10px #FFD700,
-        0 0 15px #FFD700;
-    }
-
     nav.fancy .tab.active {
-      text-shadow:
-        0 0 10px #FFD700,
-        0 0 20px #FFD700,
-        0 0 30px #FFD700;
+      text-decoration: underline;
     }
 
-    /* Отступ для шапки, чтобы не перекрывала навигация */
+    nav.fancy .tab:hover {
+      text-shadow: 0 0 10px gold, 0 0 20px gold;
+    }
+
+    /* Шапка */
     header {
-      margin-top: 50px; /* примерно высота навигации */
       width: 100%;
       height: 30vh;
       background: url('images/header-background.jpg') center/cover no-repeat;
@@ -94,40 +82,26 @@
       margin-top: 10px;
     }
 
-    /* Главная страница с категориями */
-    #home .category-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 40px;
-      padding: 50px 20px;
-    }
-
-    #home .category {
-      width: 150px;
-      height: 150px;
+    /* Главные плашки */
+    #home .tab {
+      background: linear-gradient(145deg, #FFD700, #EEC900);
       border-radius: 50%;
+      width: 120px;
+      height: 120px;
       display: flex;
       align-items: center;
       justify-content: center;
+      color: black;
       font-family: 'UnifrakturCook', cursive;
-      font-size: 18px;
-      cursor: pointer;
-      color: #000;
-      background: radial-gradient(circle at 30% 30%, #FFFF99 0%, #FFD700 50%, #B8860B 100%);
-      box-shadow: inset 0 10px 20px rgba(255,255,255,0.3), 0 4px 10px rgba(0,0,0,0.5);
+      font-size: 16px;
       text-align: center;
-      padding: 10px;
+      box-shadow: inset 0 0 30px #fff3, 0 4px 10px rgba(0,0,0,0.3);
       transition: all 0.3s ease;
     }
 
-    #home .category:hover {
-      transform: scale(1.15);
-      box-shadow:
-        inset 0 10px 30px rgba(255,255,255,0.5),
-        0 0 25px rgba(255,223,0,1),
-        0 0 35px rgba(255,215,0,0.9),
-        0 0 45px rgba(255,215,0,0.8);
+    #home .tab:hover {
+      transform: scale(1.1);
+      box-shadow: inset 0 0 50px #fff5, 0 0 20px gold, 0 0 40px gold;
     }
 
     /* Галереи */
@@ -171,21 +145,6 @@
     footer a:hover {
       text-decoration: underline;
     }
-
-    /* Адаптивность */
-    @media (max-width: 600px) {
-      nav.fancy .tab {
-        font-size: 16px;
-      }
-      #home .category-grid {
-        gap: 20px;
-      }
-      #home .category {
-        width: 120px;
-        height: 120px;
-        font-size: 14px;
-      }
-    }
   </style>
 </head>
 <body>
@@ -193,7 +152,7 @@
 <!-- Навигация сверху -->
 <nav class="fancy">
   <ul class="tabs">
-    <li class="tab active" data-tab="home">Home</li>
+    <li class="tab" data-tab="home">Home</li>
     <li class="tab" data-tab="ai">AI Illustrations</li>
     <li class="tab" data-tab="photo">Photo</li>
     <li class="tab" data-tab="backgrounds">Backgrounds|Prints</li>
@@ -209,20 +168,19 @@
   </div>
 </header>
 
-<!-- Главная (Home) -->
+<!-- Главная -->
 <section class="tab-content active" id="home">
-  <div class="category-grid">
-    <div class="category" data-tab="ai">AI Illustrations</div>
-    <div class="category" data-tab="photo">Photo</div>
-    <div class="category" data-tab="backgrounds">Backgrounds|Prints</div>
-    <div class="category" data-tab="oil">Oil Paintings</div>
-    <div class="category" data-tab="watercolor">Watercolors</div>
-  </div>
+  <ul class="tabs" style="justify-content:center; gap:40px; padding:50px 0; list-style:none;">
+    <li class="tab" data-tab="ai">AI Illustrations</li>
+    <li class="tab" data-tab="photo">Photo</li>
+    <li class="tab" data-tab="backgrounds">Backgrounds|Prints</li>
+    <li class="tab" data-tab="oil">Oil Paintings</li>
+    <li class="tab" data-tab="watercolor">Watercolors</li>
+  </ul>
 </section>
 
 <!-- AI Illustrations -->
 <section class="gallery tab-content" id="ai">
-  <!-- Картинки из папки images -->
   <div class="gallery-item"><img src="images/dream_TradingCard (1).jpg" alt="AI Illustration 2"></div>
   <div class="gallery-item"><img src="images/dream_TradingCard (3).jpg" alt="AI Illustration 3"></div>
   <div class="gallery-item"><img src="images/dream_TradingCard (8).jpg" alt="AI Illustration 4"></div>
@@ -253,7 +211,7 @@
 
 <!-- Photo -->
 <section class="gallery tab-content" id="photo">
-  <div class="gallery-item"><img src="images/photo1.jpg" alt="Photo"></div>
+  <div class="gallery-item"><img src="images/photo1.jpg" alt="Photo 1"></div>
 </section>
 
 <!-- Backgrounds|Prints -->
@@ -271,6 +229,56 @@
   <div class="gallery-item"><img src="images/watercolor1.jpg" alt="Watercolor"></div>
 </section>
 
+<!-- Скрипт вкладок с поддержкой прямых ссылок -->
+<script>
+  const tabs = document.querySelectorAll('nav.fancy .tab');
+  const homeTabs = document.querySelectorAll('#home .tab');
+  const contents = document.querySelectorAll('.tab-content');
+
+  function activateTab(tabId) {
+    tabs.forEach(t => t.classList.remove('active'));
+    homeTabs.forEach(t => t.classList.remove('active'));
+    contents.forEach(c => c.classList.remove('active'));
+
+    const tab = document.querySelector(`nav.fancy .tab[data-tab="${tabId}"]`);
+    const homeTab = document.querySelector(`#home .tab[data-tab="${tabId}"]`);
+    const content = document.getElementById(tabId);
+
+    if(tab) tab.classList.add('active');
+    if(homeTab) homeTab.classList.add('active');
+    if(content) content.classList.add('active');
+
+    window.history.replaceState(null, '', `#${tabId}`);
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      activateTab(tab.dataset.tab);
+    });
+  });
+
+  homeTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      activateTab(tab.dataset.tab);
+    });
+  });
+
+  window.addEventListener('load', () => {
+    const hash = window.location.hash.substring(1);
+    if(hash){
+      activateTab(hash);
+    } else {
+      activateTab('home');
+    }
+  });
+</script>
+
+<footer>
+  <p>Contact me:</p>
+  <a href="https://www.instagram.com/yanekhudozhnick/" target="_blank">Instagram</a> |
+  <a href="https://www.youtube.com/@yanekhudozhnick" target="_blank">YouTube</a> |
+  <a href="https://t.me/yanadefectolog" target="_blank">Telegram</a>
+</footer>
 
 </body>
 </html>
